@@ -25,7 +25,27 @@
     --font-weight-semibold:600;
     --font-weight-bold:700;
 
-    
+    --border-radius-s: 8px;
+    --border-radius-m: 30px;
+    --border-radius-circle: 50%;
+
+    --site-max-width: 1300px;
 
 
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+header{
+   background: var(--primary-color); 
+}
+.navbar .logo-text {
+    color: var(--white-color);
+}
+.navbar .nav-menu .nav-link {
+    color: var(--white-color);
 }
