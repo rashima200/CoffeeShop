@@ -81,6 +81,11 @@ header .navbar {
 .nav-menu {
     display: flex;
     gap: 10px;
+    transition: left 0.2s ease;
+}
+
+body.show-mobile-menu .navbar .nav-menu {
+    left: 0;
 }
 
 .nav-menu .nav-item .nav-link {
@@ -96,11 +101,22 @@ header .navbar {
     background: var(--secondary-color);
 }
 
-.navbar :where(#menu-close-button, #menu-open-button){
-    display: none;
+.navbar :where(#menu-close-button, #menu-open-button) {
+    font-size: var(--font-size-l);
+    display: block;
 }
 
-/*hero section*/
+.navbar #menu-close-button {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    color: var(--dark-color);
+}
+
+.navbar #menu-open-button {
+    color: var(--white-color);
+}
+
 .hero-section {
     min-height: 100vh;
     background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
@@ -172,18 +188,19 @@ header .navbar {
         --font-size-xl: 1.5rem;
         --font-size-xxl: 1.8rem;
     }
-    .navbar :where(#menu-close-button, #menu-open-button){
-        font-size: var(--font-size-l);
-        display: block;
+    body.show-mobile-menu header::before {
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.2);
     }
-    .navbar #menu-close-button{
-        position: absolute;
-        right: 30px;
-        top: 30px;
 
-    }
-    .navbar #menu-open-button {
-        color: var(--white-color);
+    .navbar #menu-close-button {
+        display: block;
     }
 
     .nav-menu {
@@ -197,9 +214,25 @@ header .navbar {
         padding-top: 100px;
         gap: 20px;
     }
+    body.show-mobile-menu .navbar .nav-menu {
+        left: 0;
+    }
 
     .nav-menu .nav-link {
         color: var(--dark-color);
         font-size: var(--font-size-l);
+    }
+    .hero-section .section-content {
+        gap: 50px;
+        text-align: center;
+        padding: 30px 20px 20px;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .hero-section .hero-details .subtitle
+    .hero-section .hero-image-wrapper {
+        max-width: 270px;
+        margin-right: 0;
     }
 }
